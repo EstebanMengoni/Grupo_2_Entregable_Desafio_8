@@ -25,3 +25,4 @@ function main () {
     verificarInstalacion kibana
     verificarInstalacion logstash
 }
+main
