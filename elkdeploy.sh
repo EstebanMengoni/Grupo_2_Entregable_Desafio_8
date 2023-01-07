@@ -21,8 +21,18 @@ function verificarInstalacion () {
 }
 
 function main () {
+"""
+    find /etc/apt/sources.list.d/elastic-7.x.list | grep $?
+	if [ $?  = 1]
+	then
+                curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+                echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+                sudo apt update
+	fi
+"""
     verificarInstalacion elasticsearch
     verificarInstalacion kibana
     verificarInstalacion logstash
+    //verificarInstalacion filebeat
 }
 main
