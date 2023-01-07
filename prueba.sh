@@ -5,6 +5,7 @@ function verificarInstalacion () {
         if [ $? != 0 ]
         then
             sudo apt install $1
+            
         fi
     sudo apt list --upgradable | grep $1
         if [ $? != 0 ]
