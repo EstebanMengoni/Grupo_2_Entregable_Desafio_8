@@ -17,8 +17,9 @@ function verificarInstalacion () {
 
 
 function main () {
-	find /etc/apt/sources.list.d/elastic-7.x.list | grep $?
-	if [ $?  = 1]
+    verificarInstalacion curl
+	find /etc/apt/sources.list.d/elastic-7.x.list
+	if [ $?  = 1 ] 
 	then
                 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
