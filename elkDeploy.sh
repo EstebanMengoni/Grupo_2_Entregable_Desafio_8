@@ -15,7 +15,10 @@ function verificarInstalacion () {
         fi
 }
 
-
+function habilitarServidor (){
+    sudo systemctl enable $1
+    sudo systemctl start $1
+}
 
 function main () {
     verificarInstalacion curl
@@ -32,5 +35,15 @@ function main () {
     verificarInstalacion elasticsearch
     verificarInstalacion kibana
     verificarInstalacion logstash
+    verificarInstalacion filebeat
+    read -p "¿Desea habilitar los servicios? (y/n)" a
+
+if [ a = y ]
+then
+   function habilitarServidor elasticsearch
+   function habilitarServidor kibana
+   function habilitarServidor logstash
+   function habilitarServidor filebeat
+fi
 }
 main
