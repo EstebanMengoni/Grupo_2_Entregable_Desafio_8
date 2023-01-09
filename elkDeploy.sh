@@ -35,15 +35,10 @@ function main () {
     verificarInstalacion elasticsearch
     verificarInstalacion kibana
     verificarInstalacion logstash
-    verificarInstalacion filebeat
-    read -p "¿Desea habilitar los servicios? (y/n)" a
-
-if [ a = y ]
-then
-   function habilitarServidor elasticsearch
-   function habilitarServidor kibana
-   function habilitarServidor logstash
-   function habilitarServidor filebeat
-fi
+    verificarInstalacion filebeat 
+    habilitarServidor elasticsearch
+    habilitarServidor kibana
+    habilitarServidor logstash
+    habilitarServidor filebeat
 }
 main
