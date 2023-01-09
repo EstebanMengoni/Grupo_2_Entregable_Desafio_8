@@ -1,10 +1,12 @@
-#!/bin/bash
+El script wordpressDeploy.sh se encarga de instalar los paquetes Wordpress, Ngnix y Mysql
+Verifica si cada paquete esta instalado, si lo esta, verifica si tiene una actualizacion, si no, lo instala
+Todo esto gracias a la siguiente funcion
 
 function verificarInstalacion () {
     sudo apt list --installed | grep $1
         if [ $? != 0 ]
         then
-            sudo apt install $1
+            sudo apt install $1 
         else
             sudo apt list --upgradable | grep $1
             if [ $? != 0 ]
@@ -13,10 +15,3 @@ function verificarInstalacion () {
             fi
         fi
 }
-
-function main () {
-    verificarInstalacion mysql-server
-    verificarInstalacion nginx
-    verificarInstalacion wordpress
-}
-main

@@ -1,0 +1,30 @@
+Una vez ejecutamos el script elkDeploy.sh, este procedera a instalar Kibana, Elasticsearch, Logstash y Filebeat
+Primero verifica si el comando curl esta instalado en el dispositivo ya que con el traeremos la key de Elasticsearch, la cual nos permite la instalacion del paquete
+
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt update
+
+Luego verificara si todos los paquetes estan instalados con la funcion
+Tambien verificara que todo paquete este actualizado por si ya estaba instalado
+
+function verificarInstalacion () {
+    sudo apt list --installed | grep $1
+        if [ $? != 0 ]
+        then
+            sudo apt install $1
+        else
+            sudo apt list --upgradable | grep $1
+            if [ $? != 0 ]
+            then
+                sudo apt upgrade $1
+            fi
+        fi 
+}
+
+Despues de eso el script habilitara los servicios para todos los paquetes instalados con la siguiente funcion
+
+function habilitarServidor (){
+    sudo systemctl enable $1
+    sudo systemctl start $1
+}
