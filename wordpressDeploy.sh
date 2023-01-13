@@ -17,6 +17,11 @@ function verificarInstalacion () {
 function main () {
     verificarInstalacion default-mysql-server
     verificarInstalacion nginx
-    verificarInstalacion wordpress
+    
+    wget https://wordpress.org/latest.tar.gz
+    tar vxf latest.tar.gz
+    sudo mv /wordpress/* /var/www/html/ejemplo.com/
+    rm wordpress
+    sudo chown -R www-data: /var/www/html/ejemplo.com
 }
 main

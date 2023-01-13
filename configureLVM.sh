@@ -38,5 +38,6 @@ sudo vgchange -ay $grupo
 montar $grupo mysqlLogs mysql
 montar $grupo elasticsearchLogs elasticsearch
 
+df
 } 
 main
