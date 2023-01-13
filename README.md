@@ -2,10 +2,14 @@ Para elasticsearsh solo comprobamos si el servicio se está ejecutando
 curl -X GET "localhost:9200"
 
 Para configurar el servicio kibana tenemos que crear un usuario administrativo y crear un proxy inverso usando nginx
+
 echo "kibanaadmin`openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users
+
 creamos un archivo en esta ubicacion
+
 sudo vi /etc/nginx/sites-available/example.com
 Y copiamos el siguiente código 
+
 server {
     listen 80;
     server_name example.com;
