@@ -80,3 +80,19 @@ sudo filebeat modules enable system
 
 A continuación, cargamos la plantilla de índice en Elasticsearch
 sudo filebeat setup --template -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
+
+copiamos el archivo default de /etc/nginx/sites-available/example.com y editar dejando las siguientes líneas:
+línea 22 listen 80;
+línea 23 listen [::]:80;
+línea 41 root /var/www/ejemplo.com
+línea 46  server_name ejemplo.com
+luego creamos un enlace simbólico en sites-enabled
+sudo ln -s /etc/nginx/sites-available/ejemplo.com /etc/nginx/sites-enabled/ejemplo.com
+configuracion de wordpress 
+Creamos DaraBases
+mysql -u root -p
+CREATE DATABASE wordpress;
+CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'new_password_here';
+GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
