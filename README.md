@@ -96,3 +96,25 @@ CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'new_password_here';
 GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+RESPUESTAS EJERCICIOS
+
+A. https://drive.google.com/file/d/1KJP5foVCE38oU92fDbFDioR1K2lIJk1m/view?usp=sharing
+
+E. Escribimos el comando sudo tail /var/log/kibana/kibana.log
+
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","ruleRegistry"],"pid":531,"message":"Installing resources for index .alerts-observability.metrics.alerts"}
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","ruleRegistry"],"pid":531,"message":"Installing resources for index .alerts-observability.apm.alerts"}
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","ruleRegistry"],"pid":531,"message":"Installed resources for index .alerts-observability.logs.alerts"}
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","ruleRegistry"],"pid":531,"message":"Installed resources for index .alerts-observability.metrics.alerts"}
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","ruleRegistry"],"pid":531,"message":"Installed resources for index .alerts-observability.uptime.alerts"}
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","ruleRegistry"],"pid":531,"message":"Installed resources for index .alerts-observability.apm.alerts"}
+{"type":"log","@timestamp":"2023-01-13T22:12:32-03:00","tags":["info","plugins","securitySolution"],"pid":531,"message":"Dependent plugin setup complete - Starting ManifestTask"}
+{"type":"log","@timestamp":"2023-01-13T22:12:33-03:00","tags":["info","plugins","reporting","chromium"],"pid":531,"message":"Browser executable: /usr/share/kibana/x-pack/plugins/reporting/chromium/headless_shell-linux_x64/headless_shell"}
+{"type":"log","@timestamp":"2023-01-13T22:12:33-03:00","tags":["warning","plugins","reporting","chromium"],"pid":531,"message":"Enabling the Chromium sandbox provides an additional layer of protection."}
+{"type":"log","@timestamp":"2023-01-13T22:12:38-03:00","tags":["info","status"],"pid":531,"message":"Kibana is now available (was degraded)"}
+
+F. verificnado con el comando top se observar que logstash consume mas %cpu y elasticsearch consume %cpu y %men. 
+
+G. La mejor forma de mejorar el HA seria alquilando una maquina virtual en la nube, las cuales (dependiendo la paga) pueden aumentar demasiado el nivel del Ha.
